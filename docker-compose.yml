@@ -1,0 +1,35 @@
+services:
+  mysql: 
+    container_name: mysql_container
+    image: mysql 
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword 
+      MYSQL_DATABASE: rentRead
+      MYSQL_USER: user 
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./rentRead:/var/lib/mysql
+    networks:
+      - rentRead-network
+    restart: unless-stopped
+
+  spring-boot-app:
+    container_name: rentReadSpringboot
+    image: rentread-spring-boot-app
+    ports:
+      - "8080:8080"
+    networks:
+      - rentRead-network 
+    depends_on:
+      - mysql 
+    
+
+networks:
+  rentRead-network:
+    driver: bridge
+
+volumes:
+  rentRead:
+    driver: local
