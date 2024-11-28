@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -35,9 +37,10 @@ public class User implements UserDetails, Principal{
     private String lastname;
     private String email;
     private String password;
+    @Enumerated(
+        value = EnumType.STRING
+    )
     private Role role;
-    private Long book1 = -1L;
-    private Long book2 = -1L;
     private boolean enabled;
     private boolean accountLocked;
     

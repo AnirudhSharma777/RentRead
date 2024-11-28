@@ -3,9 +3,9 @@ spring:
     name: readRent
   
   datasource:
-    url: jdbc:mysql://host.docker.internal:3307/rentRead
-    username: user
-    password: rootpassword
+    url: jdbc:mysql://localhost:3306/rentRead
+    username: root
+    password: Abcdef@123
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     generate-ddl: true
@@ -16,4 +16,10 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
-    
+
+
+application:
+  security:
+    jwt:
+      secret-key: 4fa82cc41ee0e6bb27580fc5af49f4b6097033ebe3878785a9ff5a6b68807b00b158f0e685d2486410da2b9dbd4ea29b21634c0900bab84d08c3f2ffd5224a86
+      expiration: 8640000
