@@ -3,9 +3,9 @@ spring:
     name: readRent
   
   datasource:
-    url: jdbc:mysql://localhost:3306/rentRead
-    username: root
-    password: Abcdef@123
+    url: jdbc:mysql://host.docker.internal:3307/rentRead
+    username: user
+    password: rootpassword
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     generate-ddl: true
